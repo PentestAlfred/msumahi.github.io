@@ -1,0 +1,801 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>MSUMAHI - Mechanical Engineer (NIT Tanzania)</title>
+    <meta name="author" content="MSUMAHI">
+    <meta name="description" content="Recent Mechanical Engineering graduate from NIT Tanzania seeking opportunities in mechanical design and industrial engineering">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-left: 0.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            position: relative;
+            margin: 0 0.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.8rem 1.2rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: block;
+            font-size: 0.95rem;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+        
+        nav ul li a.active {
+            background-color: var(--accent);
+        }
+        
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title p {
+            color: #777;
+            font-size: 1.1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 1rem auto;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .education-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--secondary);
+        }
+        
+        .education-item h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+        
+        .education-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-info h3 {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-info p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .project-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--light);
+            color: var(--dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-category h3 i {
+            margin-right: 0.8rem;
+            color: var(--secondary);
+        }
+        
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .skill-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-list li::before {
+            content: '▹';
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .contact-details p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details i {
+            width: 30px;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--light);
+            color: var(--dark);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-img {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+            }
+            
+            nav {
+                width: 100%;
+                display: none;
+                margin-top: 1rem;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            nav ul li {
+                margin: 0.3rem 0;
+                width: 100%;
+            }
+            
+            nav ul li a {
+                padding: 0.8rem 1rem;
+                border-radius: 0;
+                border-left: 3px solid transparent;
+            }
+            
+            nav ul li a:hover {
+                background-color: rgba(255,255,255,0.1);
+                border-left: 3px solid var(--accent);
+                transform: none;
+            }
+            
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="#">MSUMAHI<span>BEng Mechanical Engineering</span></a>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="nav">
+                <ul>
+                    <li><a href="#about" class="active"><i class="fas fa-user"></i> About</a></li>
+                    <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                    <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                    <li><a href="#skills"><i class="fas fa-cogs"></i> Skills</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>Recent Mechanical Engineering Graduate from NIT Tanzania</p>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-img">
+                <img src="images/profile.jpg" alt="MSUMAHI - Mechanical Engineer">
+            </div>
+            
+            <div class="about-text">
+                <h3>Hello, I'm MSUMAHI</h3>
+                <p>I recently graduated with a Bachelor's degree in Mechanical Engineering from the National Institute of Transport (NIT) in Tanzania. My academic journey has equipped me with strong technical knowledge and practical skills in mechanical systems design, manufacturing processes, and industrial engineering.</p>
+                
+                <p>During my studies, I developed a passion for sustainable engineering solutions and innovative mechanical designs. I'm particularly interested in automotive systems, renewable energy technologies, and industrial automation.</p>
+                
+                <p>As a fresh graduate, I'm eager to apply my knowledge in real-world engineering challenges and contribute to Tanzania's industrial development. I'm seeking opportunities where I can grow professionally while making meaningful contributions to mechanical engineering projects.</p>
+                
+                <div class="education-item">
+                    <h4>Bachelor of Engineering in Mechanical Engineering</h4>
+                    <p>National Institute of Transport (NIT), Tanzania | 2019 - 2023</p>
+                    <p>Key coursework: Thermodynamics, Machine Design, Fluid Mechanics, Manufacturing Processes, Automotive Engineering</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="section-title">
+            <h2>Education & Training</h2>
+            <p>My academic journey and professional development</p>
+        </div>
+        
+        <div class="education-container">
+            <div class="education-item">
+                <h4>Bachelor of Engineering in Mechanical Engineering</h4>
+                <p>National Institute of Transport (NIT), Tanzania | 2019 - 2023</p>
+                <p>GPA: 3.8/4.0 | Class Rank: Top 10%</p>
+                <ul>
+                    <li>Thesis: "Design and Analysis of a Small-Scale Solar-Powered Irrigation System for Rural Tanzania"</li>
+                    <li>Recipient of Academic Excellence Scholarship (2021, 2022)</li>
+                    <li>President of NIT Mechanical Engineering Students Association</li>
+                </ul>
+            </div>
+            
+            <div class="education-item">
+                <h4>Industrial Attachment</h4>
+                <p>Tanzania Railways Corporation | June - August 2022</p>
+                <ul>
+                    <li>Assisted in maintenance of locomotive engines and railcar mechanical systems</li>
+                    <li>Participated in preventive maintenance scheduling and implementation</li>
+                    <li>Learned about railway mechanical systems and safety protocols</li>
+                </ul>
+            </div>
+            
+            <div class="education-item">
+                <h4>Technical Certifications</h4>
+                <ul>
+                    <li>AutoCAD Certified User (2022)</li>
+                    <li>SolidWorks Associate - Mechanical Design (CSWA) (2021)</li>
+                    <li>Occupational Safety and Health Administration (OSHA) Certification (2022)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-title">
+            <h2>Academic Projects</h2>
+            <p>Hands-on engineering projects completed during my studies</p>
+        </div>
+        
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="images/solar-irrigation.jpg" alt="Solar-Powered Irrigation System">
+                </div>
+                <div class="project-info">
+                    <h3>Solar-Powered Irrigation System</h3>
+                    <p>Designed and prototyped a small-scale solar irrigation system for rural farming applications as my final year project.</p>
+                    <div class="project-skills">
+                        <span class="skill-tag">Solar Energy</span>
+                        <span class="skill-tag">Hydraulics</span>
+                        <span class="skill-tag">CAD Design</span>
+                    </div>
+                    <a href="#" class="button">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="images/cnc-design.jpg" alt="CNC Machine Design">
+                </div>
+                <div class="project-info">
+                    <h3>Mini CNC Machine Design</h3>
+                    <p>Team project to design a small CNC machine for educational purposes using locally available materials.</p>
+                    <div class="project-skills">
+                        <span class="skill-tag">Mechanical Design</span>
+                        <span class="skill-tag">Automation</span>
+                        <span class="skill-tag">3D Printing</span>
+                    </div>
+                    <a href="#" class="button">View Details</a>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="images/vehicle-design.jpg" alt="Vehicle Suspension System">
+                </div>
+                <div class="project-info">
+                    <h3>Vehicle Suspension System Analysis</h3>
+                    <p>Conducted stress analysis and optimization of suspension components for light passenger vehicles.</p>
+                    <div class="project-skills">
+                        <span class="skill-tag">FEA</span>
+                        <span class="skill-tag">Automotive</span>
+                        <span class="skill-tag">SolidWorks</span>
+                    </div>
+                    <a href="#" class="button">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-title">
+            <h2>Technical Skills</h2>
+            <p>My mechanical engineering competencies</p>
+        </div>
+        
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3><i class="fas fa-cog"></i> Mechanical Design</h3>
+                <ul class="skill-list">
+                    <li>CAD Modeling (SolidWorks, AutoCAD)</li>
+                    <li>Finite Element Analysis (FEA)</li>
+                    <li>Machine Design</li>
+                    <li>GD&T</li>
+                    <li>Prototyping</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-industry"></i> Manufacturing</h3>
+                <ul class="skill-list">
+                    <li>CNC Machining</li>
+                    <li>3D Printing</li>
+                    <li>Welding (Arc, MIG)</li>
+                    <li>Sheet Metal Fabrication</li>
+                    <li>Quality Control</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-car"></i> Automotive</h3>
+                <ul class="skill-list">
+                    <li>Vehicle Systems</li>
+                    <li>Engine Fundamentals</li>
+                    <li>Suspension Design</li>
+                    <li>Diagnostic Tools</li>
+                    <li>Maintenance Procedures</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-laptop-code"></i> Technical Software</h3>
+                <ul class="skill-list">
+                    <li>SolidWorks</li>
+                    <li>AutoCAD</li>
+                    <li>ANSYS</li>
+                    <li>MATLAB</li>
+                    <li>Microsoft Office</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-title">
+            <h2>Get In Touch</h2>
+            <p>Available for engineering opportunities and collaborations</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-details">
+                    <p><i class="fas fa-envelope"></i> msumahi@example.com</p>
+                    <p><i class="fas fa-phone"></i> +255 123 456 789</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Dar es Salaam, Tanzania</p>
+                    <p><i class="fas fa-university"></i> National Institute of Transport Alumni</p>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-researchgate"></i></a>
+                </div>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Download My Documents</h3>
+                <div class="document-links">
+                    <a href="#" class="button"><i class="fas fa-download"></i> Download CV</a>
+                    <a href="#" class="button"><i class="fas fa-download"></i> Academic Transcript</a>
+                    <a href="#" class="button"><i class="fas fa-download"></i> Degree Certificate</a>
+                    <a href="#" class="button"><i class="fas fa-download"></i> Recommendation Letter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p class="copyright">© 2023 MSUMAHI | Mechanical Engineering Graduate from NIT Tanzania</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const nav = document.getElementById('nav');
+            nav.classList.toggle('active');
+            this.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    document.getElementById('nav').classList.remove('active');
+                    document.getElementById('mobileMenuBtn').innerHTML = '<i class="fas fa-bars"></i>';
+                }
+                
+                // Set active link
+                document.querySelectorAll('#nav ul li a').forEach(item => {
+                    item.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section in navigation
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY + 100;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('#nav ul li a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
